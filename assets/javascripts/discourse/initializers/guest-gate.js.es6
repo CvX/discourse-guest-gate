@@ -10,7 +10,7 @@ export default {
 
   initialize(container) {
     if(Discourse.SiteSettings.guest_gate_enabled) {
-      if (!Discourse.User.current()) {
+      if (!container.lookup('current-user:main')) {
         var pageView = 0;
         // Tell our AJAX system to track a page transition
         const router = container.lookup('router:main');
